@@ -466,7 +466,7 @@ footer {
   padding: 9px;
   border-radius: 50%;
   background-color: var(--base-color);
-  transform: translate(calc(-8px), calc(8px));
+  transform: translate(-8px, 8px);
   background-color: var(--base-color2);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
