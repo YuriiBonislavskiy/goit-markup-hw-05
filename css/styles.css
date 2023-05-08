@@ -441,7 +441,6 @@ footer {
   transform: translate(-50%, -50%);
   height: 581px;
   width: 528px;
-  padding: 15px;
   opacity: 1;
   background-color: var(--base-color2);
   transition: opacity var(--anime-time) var(--anime-function), scale var(--anime-time) var(--anime-function);
@@ -457,10 +456,25 @@ footer {
 
 .modal-button {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+  padding: 9px;
+  border-radius: 50%;
   background-color: var(--base-color);
-  transform: translate(-50%, -50%);
+  transform: translate(calc(-8px), calc(8px));
+  background-color: var(--base-color2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.close-botton {
+  width: 11px;
+  height: 11px;
+  fill: var(--header-color);
 }
 
 
@@ -502,6 +516,7 @@ footer {
   margin-bottom: 30px;
   background-color: var(--background-light);
   display: flex;
+
   align-items: center;
   justify-content: center;
 }
