@@ -11,8 +11,10 @@
   --icon-dark: #FFFFFF1A;
   --project-item-color: #EEEEEE;
   --anime-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --anime-time: 250ms;
+  --anime-time: 1000ms;
   --scale-min: 0.5;
+  --modal-height: 581px;
+  --modal-width: 528px;
 }
 
 html {
@@ -413,71 +415,6 @@ footer {
 }
 
 
-/* Домашнє завдання 5*/
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  opacity: 1;
-  scale: 1;
-  transition: opacity var(--anime-time) var(--anime-function), scale var(--anime-time) var(--anime-function);
-  z-index: 9;
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--anime-time) var(--anime-function), scale var(--anime-time) var(--anime-function);
-  scale: var(--scale-min);
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 581px;
-  width: 528px;
-  opacity: 1;
-  background-color: var(--base-color2);
-  transition: opacity var(--anime-time) var(--anime-function), scale var(--anime-time) var(--anime-function);
-  scale: 1;
-}
-
-.backdrop.is-hidden .modal {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--anime-time) var(--anime-function), scale var(--anime-time) var(--anime-function);
-  scale: var(--scale-min);
-}
-
-.modal-button {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0px;
-  right: 0px;
-  width: 30px;
-  height: 30px;
-  padding: 9px;
-  border-radius: 50%;
-  background-color: var(--base-color);
-  transform: translate(-8px, 8px);
-  background-color: var(--base-color2);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.close-botton {
-  width: 11px;
-  height: 11px;
-  fill: var(--header-color);
-}
-
-
 /*                              Блок СЕРВІСИ */
 
 .f-services-list {
@@ -553,32 +490,23 @@ footer {
 .what-doing-item {
   margin-right: 30px;
   position: relative;
-  display: flex;
-  justify-content: center;
 }
 
-.what-doing-item::after {
-  content: '';
+.what-doing-legend {
   position: absolute;
   bottom: 0px;
-  left: 0px;
   width: 100%;
-  height: 70px;
+  padding: 27px;
   background-color: rgba(47, 48, 58, 0.8);
-  /* transform: translateX(-50%); */
 }
 
-.what-doing-item>p {
-  position: absolute;
+.what-doing-legend>p {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.143;
-  bottom: 0px;
   padding: 0px;
   margin: 0px;
-  margin: 0px 0px 27px 0px;
   color: var(--base-color2);
-  z-index: 2;
 }
 
 .what-doing-item:last-child {
@@ -879,7 +807,7 @@ footer {
 }
 
 /***********************************   ВАРІАНТ 2  */
-.p-overlay-2 {
+/* .p-overlay-2 {
   padding: 0px;
   position: relative;
   overflow: hidden;
@@ -917,7 +845,7 @@ footer {
 .project-link:hover .p-overlay-2>p,
 .project-link:focus .p-overlay-2>p {
   transform: translateY(0px);
-}
+} */
 
 /*  ******************************** Кінець ВАРІАНТ 2  *****************************/
 
@@ -951,4 +879,70 @@ footer {
 .project-link:focus {
   /* border: 1px solid #EEEEEE; */
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+
+/* Домашнє завдання 5*/
+/*           МОДАЛЬНЕ ВІКНО          */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity var(--anime-time) var(--anime-function), visibility var(--anime-time) var(--anime-function);
+  /* scale: 1; */
+  /* z-index: 9; */
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  /* scale: var(--scale-min); */
+}
+
+.modal {
+  position: absolute;
+  top: calc(50% - var(--modal-height) / 2);
+  left: calc(50% - var(--modal-width) / 2);
+  /* transform: translate(-50%, -50%); */
+  height: var(--modal-height);
+  width: var(--modal-width);
+  opacity: 1;
+  background-color: var(--base-color2);
+  transition: opacity var(--anime-time) var(--anime-function), scale var(--anime-time) var(--anime-function);
+  scale: 1;
+
+}
+
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  pointer-events: none;
+  scale: var(--scale-min);
+}
+
+.modal-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+  padding: 9px;
+  border-radius: 50%;
+  background-color: var(--base-color);
+  transform: translate(-8px, 8px);
+  background-color: var(--base-color2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.close-botton {
+  width: 11px;
+  height: 11px;
+  fill: var(--header-color);
 }
